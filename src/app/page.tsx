@@ -3,6 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { TextField, Button, Container, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Kanit } from "next/font/google"
+import toast, { Toaster } from 'react-hot-toast';
 const font = Kanit({ subsets: ["latin"], weight: "600" });
 const theme = createTheme({
   typography: {
@@ -21,6 +22,7 @@ export default function RegisterPage() {
     // Simulate registration process
     console.log(data);
     // Reset the form after successful registration
+    toast.success('Register was successfully.')
     reset()
   };
 
@@ -171,6 +173,7 @@ export default function RegisterPage() {
           </Button>
         </form>
       </Container>
+      <Toaster />
     </ThemeProvider>
   );
 }
